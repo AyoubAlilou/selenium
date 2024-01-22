@@ -17,7 +17,8 @@ driver.maximize_window()
 # Locate the search bar and enter the search query
 search_box = driver.find_element(By.NAME, "search_query")
 search_box.send_keys("never gonna give you up")
-search_box.send_keys(Keys.RETURN)
+search_button = driver.find_element(By.CSS_SELECTOR , "#search-icon-legacy > yt-icon > yt-icon-shape > icon-shape > div")
+search_button.click() 
 # Wait for search results to load
 wait = WebDriverWait(driver, 10)
 first_video_link = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'a#video-title')))
